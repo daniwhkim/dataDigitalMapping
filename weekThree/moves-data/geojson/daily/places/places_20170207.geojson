@@ -1,0 +1,109 @@
+{
+  "type" : "FeatureCollection",
+  "features" : [ {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ -73.931402, 40.69673 ]
+    },
+    "properties" : {
+      "type" : "place",
+      "startTime" : "20170206T224950-0500",
+      "endTime" : "20170207T123719-0500",
+      "place" : {
+        "id" : 588636068,
+        "type" : "unknown",
+        "location" : {
+          "lat" : 40.69673,
+          "lon" : -73.931402
+        }
+      },
+      "lastUpdate" : "20170207T194347Z",
+      "date" : "20170207"
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ -73.993393, 40.729663 ]
+    },
+    "properties" : {
+      "type" : "place",
+      "startTime" : "20170207T131613-0500",
+      "endTime" : "20170207T133239-0500",
+      "place" : {
+        "id" : 588615003,
+        "type" : "unknown",
+        "location" : {
+          "lat" : 40.729663,
+          "lon" : -73.993393
+        }
+      },
+      "lastUpdate" : "20170207T194347Z",
+      "date" : "20170207"
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ -73.997237, 40.729593 ]
+    },
+    "properties" : {
+      "type" : "place",
+      "startTime" : "20170207T134151-0500",
+      "endTime" : "20170207T193702-0500",
+      "place" : {
+        "id" : 591371837,
+        "type" : "unknown",
+        "location" : {
+          "lat" : 40.729593,
+          "lon" : -73.997237
+        }
+      },
+      "lastUpdate" : "20170208T015341Z",
+      "date" : "20170207"
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ -73.995437, 40.728406 ]
+    },
+    "properties" : {
+      "type" : "place",
+      "startTime" : "20170207T194312-0500",
+      "endTime" : "20170207T194922-0500",
+      "place" : {
+        "id" : 592755367,
+        "type" : "unknown",
+        "location" : {
+          "lat" : 40.728406,
+          "lon" : -73.995437
+        }
+      },
+      "lastUpdate" : "20170208T015341Z",
+      "date" : "20170207"
+    }
+  }, {
+    "type" : "Feature",
+    "geometry" : {
+      "type" : "Point",
+      "coordinates" : [ -73.997237, 40.729593 ]
+    },
+    "properties" : {
+      "type" : "place",
+      "startTime" : "20170207T195250-0500",
+      "endTime" : "20170208T010557-0500",
+      "place" : {
+        "id" : 591371837,
+        "type" : "unknown",
+        "location" : {
+          "lat" : 40.729593,
+          "lon" : -73.997237
+        }
+      },
+      "lastUpdate" : "20170208T080605Z",
+      "date" : "20170207"
+    }
+  } ]
+}

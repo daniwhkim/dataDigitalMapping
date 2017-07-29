@@ -1,0 +1,50 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Cutive Mono', monospace;
+}
+
+.section {
+    margin: 0 30%;
+    width: 50%;
+}
+
+.wrapper {
+	position: relative;
+}
+
+.offset {
+    height: 550px;
+}
+
+.then, .now {
+    position: absolute;
+}
+
+img {
+    width: 500px;
+}
+
+.then {
+	overflow: hidden;
+    z-index: 1;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+iframe {
+    margin: 0 10%;
+    width: 80%;
+}
+
+p {
+    text-align: center;
+    width: 60%;
+    margin: 20px 20%;
+}
+
+.margin {
+    height: 40px;
+}

@@ -1,0 +1,92 @@
+sources:
+    osm:
+        type: TopoJSON
+        url:  https://vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson?api_key=vector-tiles-HqUVidw
+        max_zoom: 16
+
+cameras:
+    camera1:
+        type: perspective
+        # vanishing_point: [500,-500]
+        focal_length: .5
+
+lights:
+    light1:
+        visible: true
+        type: directional
+        direction: [0, 1, -.5]
+        diffuse: .6
+        ambient: 1
+
+
+layers:
+    earth:
+        data: { source: osm }
+        draw:
+            polygons:
+                order: function() { return feature.sort_key; }
+                color: '#ffffff'
+
+    landuse:
+        visible: true
+        data: { source: osm }
+        draw:
+            polygons:
+                order: function() { return feature.sort_key; }
+                color: '#ffffff'
+
+    water:
+        data: { source: osm }
+        draw:
+            polygons:
+                order: function() { return feature.sort_key; }
+                color: '#96acba'
+
+    roads:
+        data: { source: osm }
+        filter:
+            not: { kind: ["path", "rail"] }
+        draw:
+            lines:
+                order: function() { return feature.sort_key; }
+                color: '#6e6e6e'
+                width: 8
+                cap: round
+        minor_road:
+            filter:
+                kind: minor_road
+            draw:
+                lines:
+                    order: function() { return feature.sort_key; }
+                    color: '#cfcfcf'
+                    width: 5
+
+    buildings:
+        data: { source: osm }
+        draw:
+            polygons:
+                order: function() { return feature.sort_key; }
+                color: grey
+        3d-buildings:
+            filter: { $zoom: { min: 10 } }
+            draw:
+                polygons:
+                    extrude: function () { return feature.height > 20 || $zoom >= 16; }
+
+    pois:
+        data: { source: osm }
+        draw:
+            points:
+                order: function() { return feature.sort_key; }
+                color: rgb(41, 34, 6)
+                size: 0
+                text:
+                    text_source: name
+                    font:
+                      family: Helvetica
+                      size: 12px
+                      # style: italic
+                      # weight: bold
+                      fill: '#222222'
+                      stroke: { color: white, width: 2 }
+                      # transform: uppercase

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+	<style>
+		body {
+			padding:0;
+			margin:0;
+			height: 100%;
+		}
+		html{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+		}
+		#map {
+			height: 100%;
+		}
+	</style>
+
+	<title>Dani's Travels</title>
+	<link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+	<script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+	<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet'>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script> 
+</head>
+
+<body>
+	<div id="map"></div>
+
+	<script>
+		var layer = new L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', "toner", {
+			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+		});
+
+		var map = L.map('map', {
+		  scrollWheelZoom: true,
+		  center: [39.36827914916014, 2.8125],
+		  zoom: 2
+		});
+
+		map.addLayer(layer);
+		var points = omnivore.geojson('travel-route.geojson').addTo(map);
+
+		    map.addLayer(layer);
+     var points = omnivore.geojson('travel-route.geojson').addTo(map);
+
+	// adding markers
+	    var marker1 = L.marker([5.965753671065536, 102.3046875]).addTo(map);
+	    // marker1.bindPopup("Kuala Lumpur").openPopup();
+
+	    var marker2 = L.marker([24.206889622398023, 54.4921875]).addTo(map);
+	    // marker2.bindPopup("Dubai").openPopup();
+
+	    var marker3 = L.marker([40.713955826286046, -73.47656249999999]).addTo(map);
+	    // marker3.bindPopup("New York").openPopup();
+	// only the last marker shown
+	</script>
+
+</body>
+</html>

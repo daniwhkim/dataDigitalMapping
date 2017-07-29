@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title>Dani's Moves Data</title>
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet'>
+
+    <link href='style.css' rel='stylesheet'>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
+	</head>
+
+	<body>
+		<div id="map"></div>
+
+		<script>
+			// add basemap
+			var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png');
+			var map = L.map('map').setView([40.771403, -73.941432], 12);
+			map.addLayer(layer);
+
+			// walking layer
+			var walkingLayer = L.geoJson(null, {
+				filter: function(feature) {
+					// console.log(feature.properties.activities[0].activity);
+					return feature.properties.activities[0].activity == "walking";
+				},
+				style: function(feature) {
+					return {
+						color: "blue",
+						weight: 5
+					}
+				}
+			});
+
+			// transport Layer
+    		var transportLayer = L.geoJson(null, {
+	        	filter: function(feature) {
+		            // console.log(feature.properties.activities[0].activity);
+		            return feature.properties.activities[0].activity == "transport";
+	        	},
+	        	style: function(feature){
+		            return {
+		                color: "#34F1BD",
+		                weight: 5,
+		                opacity: .4
+		            }
+	        	}
+	        });
+
+		    // places Layer
+		    var placesLayer = L.geoJson(null, {
+		        pointToLayer: function(feature, latlng){
+		            return new L.CircleMarker(latlng, {
+		                radius: 5,
+		                color: "black",
+		                fillOpacity: 1
+		            })
+		        },
+		        onEachFeature(feature, layer){
+		            console.log(feature.properties.place.location.lat);
+		            layer.bindPopup("<strong>Location</strong>:" + "</br>" + String(feature.properties.place.location.lat.toFixed(2)) + ", " + String(feature.properties.place.location.lon.toFixed(2)))
+		        },
+		        // filter: function(feature){
+		        //     return feature.properties.place.type == "unknown"
+		        // }
+		    });
+
+			var dataLayer = omnivore.geojson("moves-data/geojson/full/activities.geojson", null, walkingLayer).addTo(map);
+			var dataLayer = omnivore.geojson("moves-data/geojson/full/activities.geojson", null, transportLayer).addTo(map);
+			var dataLayer = omnivore.geojson("moves-data/geojson/full/places.geojson", null, placesLayer).addTo(map);
+		</script>
+	</body>
+</html>
